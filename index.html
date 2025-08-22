@@ -26,7 +26,39 @@
                 <a href="#about">About</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
+                <span class="mega-toggle" aria-haspopup="true" aria-expanded="false">Shop ▾</span>
             </nav>
+        </div>
+        <div class="mega-menu" aria-label="Shop categories">
+            <div class="container mega-grid">
+                <div class="mega-col">
+                    <h4>Eyeglasses</h4>
+                    <ul>
+                        <li><a href="#products" data-filter="Women">Women</a></li>
+                        <li><a href="#products" data-filter="Men">Men</a></li>
+                        <li><a href="#products" data-filter="Kids">Kids</a></li>
+                        <li><a href="#products" data-filter="Unisex">Unisex</a></li>
+                        <li><a href="#products" data-filter="Reading">Reading Glasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Sunglasses</h4>
+                    <ul>
+                        <li><a href="#products" data-filter="Women">Women</a></li>
+                        <li><a href="#products" data-filter="Men">Men</a></li>
+                        <li><a href="#products" data-filter="Kids">Kids</a></li>
+                        <li><a href="#products" data-filter="Unisex">Unisex</a></li>
+                        <li><a href="#products" data-filter="Power">Power Sunglasses</a></li>
+                    </ul>
+                </div>
+                <div class="mega-col">
+                    <h4>Contact Lenses</h4>
+                    <ul>
+                        <li><a href="#products" data-filter="Bausch & Lomb">Bausch & Lomb</a></li>
+                        <li><a href="#products" data-filter="Alcon">Alcon</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="searchbar-wrap">
             <div class="container searchbar">
@@ -56,20 +88,30 @@
                     <div class="slides">
                         <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1518544801976-3e72380984b7?q=80&w=1600&auto=format&fit=crop')">
                             <div class="slide-content">
-                                <h3>Flat 20% Off on Sunglasses</h3>
-                                <a href="#products" class="btn btn-secondary">Shop Now</a>
+                                <h3>Elegant Frames. Effortless Style.</h3>
+                                <p>Lightweight, comfy, and stylish on every face.</p>
+                                <a href="#products" class="btn btn-secondary">Shop Frames</a>
                             </div>
                         </div>
                         <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop')">
                             <div class="slide-content">
-                                <h3>Blue-Light Lenses Offer</h3>
-                                <a href="#products" class="btn btn-secondary">Add to Frames</a>
+                                <h3>All Frames Are Full-Spring</h3>
+                                <p>Best build quality with shock-absorbing metal hinges.</p>
+                                <a href="#products" class="btn btn-secondary">View Collection</a>
                             </div>
                         </div>
                         <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1553532434-5ab5b6b84993?q=80&w=1600&auto=format&fit=crop')">
                             <div class="slide-content">
-                                <h3>Premium Metal Collection</h3>
+                                <h3>Durable & Strong</h3>
+                                <p>Optical-grade materials with anti-scratch coating.</p>
                                 <a href="#products" class="btn btn-secondary">Explore</a>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1542052430-7d4692c95631?q=80&w=1600&auto=format&fit=crop')">
+                            <div class="slide-content">
+                                <h3>High Quality Lenses</h3>
+                                <p>UV protection, blue-block, anti-glare & hydrophobic coats.</p>
+                                <a href="#products" class="btn btn-secondary">Upgrade Lenses</a>
                             </div>
                         </div>
                     </div>
@@ -77,6 +119,7 @@
                         <button class="dot active" data-index="0" aria-label="Slide 1" aria-selected="true"></button>
                         <button class="dot" data-index="1" aria-label="Slide 2" aria-selected="false"></button>
                         <button class="dot" data-index="2" aria-label="Slide 3" aria-selected="false"></button>
+                        <button class="dot" data-index="3" aria-label="Slide 4" aria-selected="false"></button>
                     </div>
                 </div>
             </div>
@@ -220,6 +263,59 @@
             </div>
         </section>
 
+        <section id="vision" class="section">
+            <div class="container">
+                <h2 class="section-title">Vision correction – Simplified</h2>
+                <form id="visionForm" class="wizard">
+                    <div class="steps">
+                        <div class="step active" data-step="1">
+                            <h3>1) Choose frame shape</h3>
+                            <div class="choices grid">
+                                <label><input type="radio" name="shape" value="Rectangle" required /> Rectangle</label>
+                                <label><input type="radio" name="shape" value="Round" /> Round</label>
+                                <label><input type="radio" name="shape" value="Oval" /> Oval</label>
+                                <label><input type="radio" name="shape" value="Cat-eye" /> Cat-eye</label>
+                                <label><input type="radio" name="shape" value="Geometric" /> Geometric</label>
+                                <label><input type="radio" name="shape" value="Aviator" /> Aviator</label>
+                                <label><input type="radio" name="shape" value="Navigator" /> Navigator</label>
+                            </div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <h3>2) Size</h3>
+                            <div class="choices">
+                                <label><input type="radio" name="size" value="S" required /> S</label>
+                                <label><input type="radio" name="size" value="M" /> M</label>
+                                <label><input type="radio" name="size" value="L" /> L</label>
+                            </div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <h3>3) Upload prescription (optional)</h3>
+                            <input type="file" id="rxFile" accept="image/*,.pdf" />
+                            <p class="hint">You can also share this in WhatsApp after starting chat.</p>
+                        </div>
+                        <div class="step" data-step="4">
+                            <h3>4) Upload your picture (optional)</h3>
+                            <input type="file" id="picFile" accept="image/*" />
+                            <p class="hint">Optional — helps us suggest best fits.</p>
+                        </div>
+                        <div class="step" data-step="5">
+                            <h3>Your details</h3>
+                            <div class="details-grid">
+                                <label> Name <input type="text" id="vcName" placeholder="Your name" required /></label>
+                                <label> Mobile <input type="tel" id="vcMobile" placeholder="10-digit number" required /></label>
+                                <label> City <input type="text" id="vcCity" placeholder="Your city" /></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-actions">
+                        <button type="button" class="btn btn-secondary" id="vcPrev">Back</button>
+                        <button type="button" class="btn btn-primary" id="vcNext">Next</button>
+                        <button type="submit" class="btn btn-buy" id="vcSubmit" style="display:none">Send on WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">About Eyegic Opticals</h2>
@@ -273,6 +369,22 @@
         <div class="container footer-inner">
             <span>© <span id="year"></span> Eyegic Opticals</span>
             <a class="footer-cta" data-whatsapp-intent="generic" href="#">Chat on WhatsApp</a>
+        </div>
+        <div class="container badges">
+            <div class="badge">Up to 50% on frames</div>
+            <div class="badge">100% quality assurance</div>
+            <div class="badge">Easy returns / fitting</div>
+            <div class="badge">Perfect lens suggestions</div>
+        </div>
+        <div class="container social">
+            <span>Follow us:</span>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">WhatsApp</a>
+            <span> | </span>
+            <a href="mailto:info@eyegic.com">info@eyegic.com</a>
+            <span> | </span>
+            <a href="tel:+91727276221">+91 72727 6221</a>
         </div>
     </footer>
 
