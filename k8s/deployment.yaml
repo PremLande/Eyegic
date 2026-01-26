@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eyegic-opticals
+  labels:
+    app: eyegic-opticals
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eyegic-opticals
+  template:
+    metadata:
+      labels:
+        app: eyegic-opticals
+    spec:
+      containers:
+      - name: eyegic-opticals
+        image: <account-id>.dkr.ecr.<region>.amazonaws.com/eyegic-opticals-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        - name: API_BASE_URL
+          value: "http://eyegic-backend-service:80"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"

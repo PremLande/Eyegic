@@ -1,0 +1,43 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+*.env
+
+# Build artifacts
+dist/
+build/
+node_modules/
+
+# Terraform
+infrastructure/.terraform/
+infrastructure/.terraform.lock.hcl
+infrastructure/*.tfstate
+infrastructure/*.tfstate.*
+infrastructure/terraform.tfvars
+
+# Kubernetes
+k8s/*.bak
+
+# Docker
+.dockerignore.bak
+
+# Temporary files
+*.tmp
+*.temp
