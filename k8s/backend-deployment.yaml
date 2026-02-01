@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eyegic-backend
+  labels:
+    app: eyegic-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eyegic-backend
+  template:
+    metadata:
+      labels:
+        app: eyegic-backend
+    spec:
+      containers:
+      - name: eyegic-backend
+        image: <account-id>.dkr.ecr.<region>.amazonaws.com/eyegic-opticals-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        env:
+        - name: PORT
+          value: "3000"
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              name: eyegic-db-secret
+              key: db-host
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: eyegic-db-secret
+              key: db-name
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: eyegic-db-secret
+              key: db-user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: eyegic-db-secret
+              key: db-password
+        - name: DB_SSL
+          value: "true"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

@@ -1,0 +1,18 @@
+aws_region = "us-east-1"
+project_name = "eyegic-opticals"
+
+vpc_cidr = "10.0.0.0/16"
+public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnets = ["10.0.10.0/24", "10.0.20.0/24"]
+
+eks_cluster_version = "1.28"
+node_group_instance_types = ["t3.medium"]
+node_group_desired_size = 2
+node_group_min_size = 1
+node_group_max_size = 4
+
+db_name = "eyegicdb"
+db_username = "eyegicadmin"
+db_password = "CHANGE_THIS_PASSWORD"  # Change this!
+db_instance_class = "db.t3.micro"
+allocated_storage = 20
